@@ -11,7 +11,7 @@ const fs = require("fs-extra");
 const path = require("path");
 
 const openai = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.OAI_TOKEN,
 });
 
 const CACHE_FILE = path.join(__dirname, "sentenceVectors.json");
@@ -99,8 +99,7 @@ const schedule = require("node-schedule");
 
 const words = JSON.parse(fs.readFileSync("words.json", "utf8"));
 
-const token =
-  "OTcxNzg0NjY0NzAyMzk0NDI4.GCXYnE.3sHDRYuktP-QFiPzYeSjoOFp8Aw2582jbBMxq8"; // Replace with your bot token
+const token = process.env.TOKEN; // Replace with your bot token
 const channelId = "922916334134759510"; // Replace with your channel ID
 const channelId1 = "1177367543963467797"; // Replace with your channel ID
 
